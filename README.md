@@ -48,6 +48,7 @@ hello reddit subredditnamehere "Give up" "https://www.youtube.com/watch?v=DLzxrz
 * [X] Reddit
 * [X] Twitter
 * [X] HackerNews
+* [X] Linkedin 
 * [ ] Patreon (tough one, as the API does not support publishing yet)
 * [ ] Discourse (tough one, as only admins can get an API key)
 * [ ] Slack
@@ -93,6 +94,20 @@ Example:
 
 ```
 hello hn "Show HN: Hello, a CLI tool for managing social media" https://github.com/hello-rust/hello
+```
+
+### Linkedin
+
+Linkedin requries you authenticate the app 
+
+1. Navigate to [Linkedin](https://www.linkedin.com/secure/developer?newapp=) and create a new app.
+
+Please use enter the value into the app `Website URL: http://localhost:4567/linkedin/callback`
+
+2. Add your Linkedin Credentials to `.env`
+
+```
+hello linkedin "Never going to give you up Linkedin!" "https://www.youtube.com/watch?v=DLzxrzFCyOs"
 ```
 
 ### Contributing

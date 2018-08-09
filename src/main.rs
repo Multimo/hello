@@ -35,6 +35,8 @@ enum App {
     },
     #[structopt(name = "twitter")]
     Twitter { text: String },
+    #[structopt(name = "linkedin")]
+    LinkedIn { title: String, url: String },
 }
 
 fn main() -> Result<(), Error> {
@@ -87,6 +89,15 @@ fn main() -> Result<(), Error> {
 
             let client = twitter::Client::new(credentials);
             client.submit(text)
+        }
+        App::LinkedIn { title, url } => {
+            let credentials = linkedin::Credentials {
+                client_id: env::var("LINKEDIN_CLIENT_ID")?,
+                client_secret: env::var("LINKEDIN_CLIENT_SECRET")?,
+            }
+
+            let linkedinClient = linkedin::Client::new(credentials)
+            linkedinClient::submit(title, description, url)
         }
     }
 }
